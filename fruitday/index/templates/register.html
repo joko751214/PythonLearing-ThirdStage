@@ -1,0 +1,60 @@
+{%extends 'login.html'%}
+{%load static%}
+
+{%block style%}
+    <link rel="stylesheet" href="{%static 'css/register.css'%}">
+{%endblock%}
+
+{%block title%}
+    注册会员
+{%endblock%}
+
+{%block btn%}
+    <a href="{%url 'login'%}">会员登录</a>
+{%endblock%}
+
+{%block form%}
+    <form action="/register/" method="post">
+    {%csrf_token%}
+        <div class="form-line">
+            <p>手机号</p>
+            <div>
+                <input type="text" name="uphone" class="form-control">
+                <p id="uphone_err">
+                    {{errMsg}}
+                </p>
+            </div>
+        </div>
+        <div class="form-line">
+            <p>密码</p>
+            <div>
+                <input type="password" name="upwd" class="form-control">
+            </div>
+        </div>
+        <div class="form-line">
+            <p>确认密码</p>
+            <div>
+                <input type="password" id="cpwd" class="form-control">
+            </div>
+        </div>
+        <div class="form-line">
+            <p>用户名称</p>
+            <div>
+                <input type="text" name='uname' class="form-control">
+            </div>
+        </div>
+        <div class="form-line">
+            <p>邮箱</p>
+            <div>
+                <input type="email" name="uemail" class="form-control">
+            </div>
+        </div>
+        <div class="form-line">
+            <p></p>
+            <div class="form-btn">
+                <a href="{%url 'login'%}" class="register">会员登录</a>
+                <input type="submit" value="注册">
+            </div>
+        </div>
+    </form>
+{%endblock%}
